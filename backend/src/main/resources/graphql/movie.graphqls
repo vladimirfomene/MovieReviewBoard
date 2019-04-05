@@ -1,0 +1,17 @@
+type Movie {
+    id: ID!
+    title: String!
+    director: Director!
+    releaseDate: String!
+    rating: Int
+}
+
+type Query{
+    findAllMovies : [Movie]!
+    countMovies : Long!
+}
+
+type Mutation{
+    updateMovieRating(movieId: Int!) : Long!
+    newMovie(title: String!, director: Director!, releaseDate: String!, rating: String) : Movie!
+}
