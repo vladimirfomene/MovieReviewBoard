@@ -4,11 +4,19 @@ type Director {
     lastName: String!
 }
 
+input DirectorInput {
+    firstName: String!
+    lastName: String!
+}
+
 extend type Query {
-    findMoviesByDirector(director: Director) : [Movie]!
-    countMoviesByDirector(director: Director) : Long!
+    findMoviesByDirector(directorId: ID) : [Movie]!
+    countMoviesByDirector(directorId: ID) : Long!
+    findAllDirectors : [Director]!
+    countDirectors: Long!
 }
 
 extend type Mutation {
- updateDirector(directorId: ID!) : [Director]
+    newDirector(directorId: ID, firstName: String!, lastName: String!) : Director
+    updateDirector(directorId: Long!, directorInput: DirectorInput!) : Director
 }
