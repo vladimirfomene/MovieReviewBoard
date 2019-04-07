@@ -2,8 +2,8 @@ type Movie {
     id: ID!
     title: String!
     director: Director!
+    rating: Long
     releaseDate: String!
-    rating: Int
 }
 
 type Query{
@@ -12,6 +12,6 @@ type Query{
 }
 
 type Mutation{
-    updateMovieRating(movieId: Int!) : Long!
-    newMovie(title: String!, director: Director!, releaseDate: String!, rating: String) : Movie!
+    updateMovieRating(movieId: Long, vote: Long!) : Long!
+    newMovie(title: String!, directorId: ID!, releaseDate: String!, rating: Long) : Movie!
 }
