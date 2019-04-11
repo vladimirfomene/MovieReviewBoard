@@ -8,11 +8,12 @@ const webAuth = new auth0.WebAuth({
   domain: authConfig.domain,
   redirectUri: `${window.location.origin}/callback`,
   clientID: authConfig.clientId,
-  responseType: "id_token",
+  responseType: "token id_token",
   scope: "openid profile email"
 });
 
 class AuthService extends EventEmitter {
+  accessToken = null;
   idToken = null;
   profile = null;
   tokenExpiry = null;
@@ -40,6 +41,7 @@ class AuthService extends EventEmitter {
 
   localLogin(authResult) {
     this.idToken = authResult.idToken;
+    this.accessToken = authResult.accessToken;
     this.profile = authResult.idTokenPayload;
 
     // Convert the JWT expiry time from seconds to milliseconds
@@ -74,6 +76,7 @@ class AuthService extends EventEmitter {
   logOut() {
     localStorage.removeItem(localStorageKey);
 
+    this.accessToken = null;
     this.idToken = null;
     this.tokenExpiry = null;
     this.profile = null;
