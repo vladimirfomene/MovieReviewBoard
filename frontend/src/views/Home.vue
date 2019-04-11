@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <NavBarComponent v-bind:brand-title="brandTitle" />
+		<LoginComponent />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+
+import NavBarComponent from "@/components/NavBarComponent.vue";
+import LoginComponent from "@/components/LoginComponent.vue";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
-  }
+		NavBarComponent,
+		LoginComponent
+	},
+	data(){
+		return {
+			brandTitle: "Movie Review Board"
+		}
+	}
 };
+
 </script>
+
+<style scoped>
+
+</style>
+
