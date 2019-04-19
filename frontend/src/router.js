@@ -1,13 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "@/views/Home.vue";
 import MovieBoard from "@/views/MovieBoard.vue";
-import Director from "@/views/Director.vue";
 import Callback from "@/components/Callback.vue";
+import store from "@/store";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -34,11 +34,16 @@ export default new Router({
       path: "/movieboard",
       name: "movieboard",
       component: MovieBoard
-    },
-    {
-      path: "/director",
-      name: "director",
-      component: Director
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/movieboard" && !store.getters.isAuthenticated) {
+    store.dispatch("login", { target: to.path });
+  }
+
+  return next();
+});
+
+export default router;
