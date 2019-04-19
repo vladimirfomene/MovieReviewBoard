@@ -5,32 +5,31 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-	name: "app",
-	async created() {
-    try {
-      await this.$auth.renewTokens();
-    } catch {
-      // Supress the 'not logged in' error as we can illegitimately get that
-      // when processing the callback url
+  name: "app",
+  created() {
+    if (localStorage.getItem("loggedIn") === "true" && !this.accessToken) {
+      this.$store
+        .dispatch("renewTokens")
+        .then(() => {
+          this.$store.dispatch("getMovies", this.accessToken);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
+  },
+  computed: {
+    ...mapGetters(["accessToken"])
   }
-}
+};
 </script>
 
-
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 
-html{
-	height: 100%;
-}
-body {
-	background: #D3CCE3;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	background-repeat: no-repeat;
-}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
