@@ -30,5 +30,9 @@ npm run test
 npm run lint
 ```
 
+### Testing the application
+
+* To test the application visit `http://localhost:8080/` in your browser.
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
