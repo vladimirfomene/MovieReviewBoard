@@ -1,22 +1,26 @@
 package com.auth0.MovieReviewBoard
 
 
-import com.auth0.MovieReviewBoard.director.Director
+
 import com.auth0.MovieReviewBoard.director.DirectorRepository
-import com.auth0.MovieReviewBoard.movie.Movie
 import com.auth0.MovieReviewBoard.movie.MovieRepository
 import com.auth0.MovieReviewBoard.resolver.Mutation
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.core.Ordered
+import org.springframework.boot.web.servlet.FilterRegistrationBean
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import org.springframework.web.filter.CorsFilter
+import java.util.*
+import javax.servlet.Filter
+
+
 
 @SpringBootApplication
-class MovieReviewBoardApplication
-
-fun main(args: Array<String>) {
-	runApplication<MovieReviewBoardApplication>(*args)
-
+class MovieReviewBoardApplication{
 	@Bean
 	fun init(movieRepository: MovieRepository, directorRepository: DirectorRepository) = CommandLineRunner {
 		println("Initializing data for our movie and director database tables")
@@ -35,4 +39,25 @@ fun main(args: Array<String>) {
 		mutation.newMovie("Jurassic Park", 4, "09-03-1993", 7)
 		mutation.newMovie("A Madea Family Funeral", 5, "01-03-2019", 7)
 	}
+
+	@Bean
+	fun simpleCorsFilter(): FilterRegistrationBean<*> {
+		val source = UrlBasedCorsConfigurationSource()
+		val config = CorsConfiguration()
+		config.allowCredentials = true
+		// *** URL below needs to match the Vue client URL and port ***
+		config.allowedOrigins = Collections.singletonList("http://localhost:8080")
+		config.allowedMethods = Collections.singletonList("*")
+		config.allowedHeaders = Collections.singletonList("*")
+		source.registerCorsConfiguration("/**", config)
+		val bean = FilterRegistrationBean<Filter>(CorsFilter(source))
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE)
+		return bean
+	}
+
+}
+
+fun main(args: Array<String>) {
+	runApplication<MovieReviewBoardApplication>(*args)
+
 }
