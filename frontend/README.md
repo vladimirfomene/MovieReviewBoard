@@ -1,4 +1,9 @@
-# frontend
+# MovieReviewBoard
+
+## Pre-requisite
+
+* You need to install [Node.js](https://nodejs.org/en/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* Any text editor or IDE of your choice.
 
 ## Project setup
 ```
