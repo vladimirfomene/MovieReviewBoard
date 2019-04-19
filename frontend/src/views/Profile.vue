@@ -1,40 +1,47 @@
 <template>
   <div v-if="profile">
-		<NavBarComponent v-bind:brand-title="brandTitle" />
-    <div>
-      <div>
-        <img :src="profile.picture">
+    <NavBarComponent :brand-title="brandTitle" />
+    <div class="card" style="width: 18rem;">
+      <img
+        class="card-img-top"
+        :src="userProfile.picture"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ userProfile.name }}</h5>
       </div>
-      <div>
-        <h2>{{ profile.name }}</h2>
-        <p>{{ profile.email }}</p>
-      </div>
-    </div>
-
-    <div>
-      <pre>{{ JSON.stringify(profile, null, 2) }}</pre>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ userProfile.nickname }}</li>
+        <li class="list-group-item">{{ userProfile.gender }}</li>
+        <li class="list-group-item">{{ userProfile.email }}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import NavBarComponent from "@/components/NavBarComponent.vue";
 
 export default {
-	name: "profile",
-	components: {
-		NavBarComponent
-	},
+  name: "profile",
+  components: {
+    NavBarComponent
+  },
   data() {
     return {
-			profile: this.$auth.profile,
-			brandTitle: "Movie Review Board"
+      profile: {},
+      brandTitle: "Movie Review Board"
     };
   },
-  methods: {
-    handleLoginEvent(data) {
-      this.profile = data.profile;
-    }
-	}
+  computed: {
+    ...mapGetters(["userProfile"])
+  }
 };
 </script>
+
+<style scoped>
+.card {
+  margin: 5% auto;
+}
+</style>
