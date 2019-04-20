@@ -8,7 +8,7 @@
 ## App Setup
 
 * Clone this repository by executing `git clone https://github.com/vladimirfomene/MovieReviewBoard.git` in your console.
-* Enter the project directory with `cd MovieReviewBoard`.
+* Enter the project directory with `cd MovieReviewBoard/backend`.
 
 ## Running the app.
 
