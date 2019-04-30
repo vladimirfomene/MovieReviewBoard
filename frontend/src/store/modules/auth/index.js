@@ -41,7 +41,7 @@ const actions = {
     // Convert the JWT expiry time from seconds to milliseconds
     context.commit(
       "SET_TOKEN_EXPIRY",
-      new Date(context.state.userProfile.exp * 1000)
+      new Date(payload.idTokenPayload.exp * 1000)
     );
 
     localStorage.setItem("loggedIn", "true");

@@ -1,5 +1,5 @@
 {
-  "domain": "<Your-Auth0-domain>",
-  "clientId": "<Application-Client-Id>",
+  "domain": "<Auth0-Domain>",
+  "clientId": "<Auth0-APP-CLIENT-ID>",
   "audience": "https://localhost:8888/graphql"
 }

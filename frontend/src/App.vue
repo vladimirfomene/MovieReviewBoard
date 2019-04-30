@@ -15,6 +15,9 @@ export default {
         .dispatch("renewTokens")
         .then(() => {
           this.$store.dispatch("getMovies", this.accessToken);
+          if (this.$route.path === "/" && this.isAuthenticated) {
+            this.$router.push("/movieboard");
+          }
         })
         .catch(err => {
           console.log(err);
@@ -22,7 +25,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["accessToken"])
+    ...mapGetters(["accessToken", "isAuthenticated"])
   }
 };
 </script>

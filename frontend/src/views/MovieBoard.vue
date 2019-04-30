@@ -1,7 +1,7 @@
 <template>
   <div class="movie-board">
     <NavBarComponent :brand-title="brandTitle" />
-    <div class="card-columns" style="margin-top: 3%;">
+    <div class="card-columns">
       <MovieComponent v-for="movie in movies" :movie="movie" :key="movie.id" />
     </div>
   </div>
@@ -34,4 +34,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.card-columns {
+  margin: 3% 2% 3% 2%;
+}
+</style>

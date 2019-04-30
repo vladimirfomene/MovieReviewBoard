@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-left" style="width: 22rem;">
+  <div class="card text-left">
     <div class="card-header">
       <h4 class="card-heading">{{ movie.title }}</h4>
       <div class="rating-arrow" style="display: inline-block">
