@@ -8,13 +8,13 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver
 import org.springframework.stereotype.Component
 
 @Component
-class Mutation(val directorRepository: DirectorRepository, val movieRepository: MovieRepository) : GraphQLMutationResolver{
+class Mutation(val directorRepository: DirectorRepository, val movieRepository: MovieRepository) : GraphQLMutationResolver {
 
     fun updateDirector(directorId: Long, director: Director): Director {
 
         val oldDirector = directorRepository.findById(directorId)
 
-        oldDirector.ifPresent{
+        oldDirector.ifPresent {
             it.firstName = director.firstName
             it.lastName = director.lastName
         }
@@ -26,7 +26,7 @@ class Mutation(val directorRepository: DirectorRepository, val movieRepository: 
     fun updateMovieRating(movieId: Long, vote: Long): Long {
         val movie = movieRepository.findById(movieId)
 
-        movie.ifPresent{
+        movie.ifPresent {
             it.rating = it.rating + vote
             movieRepository.save(it)
         }
@@ -35,7 +35,7 @@ class Mutation(val directorRepository: DirectorRepository, val movieRepository: 
 
     }
 
-    fun newMovie(title: String, directorID: Long, releaseDate: String, rating: Long) : Movie{
+    fun newMovie(title: String, directorID: Long, releaseDate: String, rating: Long): Movie {
         val director = directorRepository.findById(directorID)
         val movie = Movie(title, director.get(), rating, releaseDate)
 
