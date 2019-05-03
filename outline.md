@@ -1,6 +1,6 @@
 # Vue.js, Spring Boot, Kotlin, and GraphQL: Building Modern Apps - Part 1
 
-**TL:DR:** Quick word on what they will be building? How the content is divided and what they will learn.
+**TL:DR:** Quick word on what you will be building? How the content is divided and what you will learn.
 
 ## Prerequisites
 * JDK 8 or above
@@ -11,38 +11,31 @@
 ## Modern Web App Architecture
 * Explain why a GraphQL API backend and SPA is a modern app architecture.
 * Why Kotlin and GraphQL?
-* What we will build.
+* What you will build.
 
 ## Bootstrap and secure Spring Boot backend
 * Bootstrap a Kotlin Spring Boot application from `start.spring.io`.
-* Register the API on Auth0.
-* Add your Auth0 API to the Spring Boot app.
-* Add a helloworld endpoint and Secure it using Auth0.
+* Add a helloworld endpoint to it.
 
 ## Bootstrap your Vue.js app
 * Scaffold a Vue.js app with Vue CLI.
-* Create an Auth0 app and connect it to the Vue app.
-* Add state management for session data using Vuex.
-* Show how to consume the helloworld endpoint from Vue.js
+* Consume the helloworld endpoint from Vue.js
+
+## Securing and consuming an endpoint from your Spring Boot backend
+* Secure your Spring Boot and Vue.js apps with Auth0
+* Consuming the secured helloworld endpoint with Vue.js
 
 ## Conclusion
-* Quick recap on what they learnt in the article.
+* Quick recap on what you learnt in the article.
 * Resources were readers can deepen their knowledge.
 * Set the stage for the next article.
 
 # Vue.js, Spring Boot, Kotlin, and GraphQL: Building Modern Apps - Part 2
 
-**TL:DR:** Quick word on what they will be building? How the content is divided and what they will learn.
-
-## Prerequisites
-* JDK 8 or above
-* Node.js, npm and Vue CLI
-* Beginner knowlegde in Kotlin, Spring Boot and Vue.js(with pointers to Auth0 articles).
-* Refer the reader to the first article. (add a link to it)
-* Text editor or IDE.
+**TL:DR:** Quick word on what you will be building? How the content is divided and what you will learn.
 
 ## Quick reminder of Part 1
-* Reminder of what we built in Part 1 on the article.
+* Reminder of what you built in Part 1 on the article.
 
 ## Build your GraphQL API
 * Add a GraphQL server to the Spring Boot app.
@@ -51,11 +44,14 @@
 * Define GraphQL Query and Mutation resolvers
 * Update security configuration for the backend.
 
-## Consuming the API with Vue.js
-* Add Bootstrap for CSS, Font Awesome and Google Font
+## Adding routing and enhancing your frontend's UI 
+* Add Bootstrap, Font Awesome and Google Font
 * Add the sample app's views and components.
 * Add routing to the app through Vue-Router.
-* Add state management to get Movies from GraphQL API.
+
+## Improving State Management and Consuming the API with Vue.js
+* Improve state management for session data using Vuex.
+* Consume movies from the GraphQL API and add state management for them.
 
 # Managing App Refresh And Adding Navigation Guards
 * Implement silent authentication to maintain state on page refresh.
