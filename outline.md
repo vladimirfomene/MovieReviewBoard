@@ -44,7 +44,7 @@
 * Define GraphQL Query and Mutation resolvers
 * Update security configuration for the backend.
 
-## Adding routing and enhancing your frontend's UI 
+## Add routing and enhance your frontend's UI 
 * Add Bootstrap, Font Awesome and Google Font
 * Add the sample app's views and components.
 * Add routing to the app through Vue-Router.
