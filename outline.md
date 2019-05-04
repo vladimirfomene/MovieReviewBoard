@@ -13,7 +13,7 @@
 * Why Kotlin and GraphQL?
 * What you will build.
 
-## Bootstrap and secure Spring Boot backend
+## Bootstrap your Spring Boot application
 * Bootstrap a Kotlin Spring Boot application from `start.spring.io`.
 * Add a helloworld endpoint to it.
 
@@ -21,7 +21,7 @@
 * Scaffold a Vue.js app with Vue CLI.
 * Consume the helloworld endpoint from Vue.js
 
-## Securing and consuming an endpoint from your Spring Boot backend
+## Securing Spring Boot and Vue.js Applications
 * Secure your Spring Boot and Vue.js apps with Auth0
 * Consuming the secured helloworld endpoint with Vue.js
 
