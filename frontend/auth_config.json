@@ -1,5 +1,5 @@
 {
 	"domain": "fomene.auth0.com",
 	"clientId": "6M65Rnp5lZvy9w0MwKl2YavXRSqCIE7w",
-	"audience": "http://localhost:8888" 
+	"audience": "https://localhost:8888/graphql" 
 }
